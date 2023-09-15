@@ -1,5 +1,5 @@
 import { Hello } from "../model/hello";
-import { HelloRemote } from "../source/hello-remote";
+import { IHelloRemote } from "../source/hello-remote";
 
 export interface IHelloRepository {
     getServerSideData: () => Hello
@@ -7,9 +7,9 @@ export interface IHelloRepository {
 }
 
 export class HelloRepository implements IHelloRepository{
-    private helloRemote: HelloRemote
+    private helloRemote: IHelloRemote
 
-    constructor({ helloRemote }: { helloRemote: HelloRemote }) {
+    constructor({ helloRemote }: { helloRemote: IHelloRemote }) {
         this.helloRemote = helloRemote
     }
 

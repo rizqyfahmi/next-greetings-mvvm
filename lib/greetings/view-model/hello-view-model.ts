@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx"
-import { HelloRepository } from "../data/repository/hello-repository"
+import { IHelloRepository } from "../data/repository/hello-repository"
 
 export interface IHelloViewModel {
     setHelloClientObservable: (helloClientObservable: string) => void
@@ -9,10 +9,10 @@ export interface IHelloViewModel {
 }
 
 export class HelloViewModel implements IHelloViewModel {
-    private helloRepository: HelloRepository
+    private helloRepository: IHelloRepository
     private helloClientObservable: string = ""
 
-    constructor({ helloRepository }: { helloRepository: HelloRepository }) {
+    constructor({ helloRepository }: { helloRepository: IHelloRepository }) {
         this.helloRepository = helloRepository
 
         makeAutoObservable(this)

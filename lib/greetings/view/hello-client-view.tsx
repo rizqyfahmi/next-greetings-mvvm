@@ -1,8 +1,8 @@
 "use client"
+
 import { observer } from "mobx-react-lite"
 import { HelloViewModel } from "../view-model/hello-view-model"
-import { HelloRepository } from "../data/repository/hello-repository"
-import { HelloRemote } from "../data/source/hello-remote"
+import { useHelloViewModel } from "@/injector"
 
 const Content = observer(
     ({ helloVM }: { helloVM: HelloViewModel }) => {
@@ -26,9 +26,7 @@ const Content = observer(
 )
 
 const HelloClientView = () => {
-    const helloRemote = new HelloRemote()
-    const helloRepository = new HelloRepository({ helloRemote: helloRemote })
-    const helloVM = new HelloViewModel({ helloRepository: helloRepository })
+    const helloVM = useHelloViewModel()
 
     return <Content helloVM={helloVM} />
 }
