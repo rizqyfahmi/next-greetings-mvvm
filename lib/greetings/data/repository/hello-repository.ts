@@ -3,6 +3,7 @@ import { HelloRemote } from "../source/hello-remote";
 
 export interface IHelloRepository {
     getServerSideData: () => Hello
+    getClientSideData: () => Hello
 }
 
 export class HelloRepository implements IHelloRepository{
@@ -13,5 +14,7 @@ export class HelloRepository implements IHelloRepository{
     }
 
     getServerSideData = (): Hello => this.helloRemote.getDataForServerSideRendering();
+
+    getClientSideData = (): Hello => this.helloRemote.getDataForClientSideRendering();
 
 }

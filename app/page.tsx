@@ -113,6 +113,8 @@ export default function Home() {
       </div>
       <div className='flex flex-col'>
         <HelloServerView />
+        <div>---------------</div>
+        <HelloClientView />
       </div>
     </main>
   )
