@@ -1,11 +1,11 @@
 "use client"
 
 import { observer } from "mobx-react-lite"
-import { HelloViewModel } from "../view-model/hello-view-model"
-import { useHelloViewModel } from "@/injector"
+import { IHelloViewModel } from "../view-model/hello-view-model"
+import helloViewModel from "@/injector"
 
 const Content = observer(
-    ({ helloVM }: { helloVM: HelloViewModel }) => {
+    ({ helloVM }: { helloVM: IHelloViewModel }) => {
         return (
             <div>
                 <div>{helloVM.getHelloClient()}</div>
@@ -26,9 +26,8 @@ const Content = observer(
 )
 
 const HelloClientView = () => {
-    const helloVM = useHelloViewModel()
-
-    return <Content helloVM={helloVM} />
+    
+    return <Content helloVM={helloViewModel} />
 }
 
 export default HelloClientView
