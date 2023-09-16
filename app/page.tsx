@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import HelloClientView from '@/lib/greetings/view/hello-client-view'
+import HelloServerView from '@/lib/greetings/view/hello-server-view'
 
 export default function Home() {
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -107,6 +110,11 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+      </div>
+      <div className='flex flex-col'>
+        <HelloServerView />
+        <div>---------------</div>
+        <HelloClientView />
       </div>
     </main>
   )
