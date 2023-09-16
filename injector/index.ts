@@ -1,11 +1,7 @@
-import { HelloRepository } from "@/lib/greetings/data/repository/hello-repository"
-import { HelloRemote } from "@/lib/greetings/data/source/hello-remote"
-import { HelloViewModel } from "@/lib/greetings/view-model/hello-view-model"
+import { IHelloViewModel } from "@/lib/greetings/view-model/hello-view-model";
+import container from "./container.injector";
+import { HelloType } from "./type.injector";
 
-export const useHelloViewModel = (): HelloViewModel => {
-    const helloRemote = new HelloRemote()
-    const helloRepository = new HelloRepository({ helloRemote: helloRemote })
-    const helloVM = new HelloViewModel({ helloRepository: helloRepository })
+const helloViewModel = container.get<IHelloViewModel>(HelloType.ViewModel)
 
-    return helloVM
-}
+export default helloViewModel
