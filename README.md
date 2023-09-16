@@ -1,16 +1,38 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Prerequisite
+1. react 18.2.0
+2. next 13.4.19
+3. tailwindcss 3.3.3
+4. mobx 6.10.2
+5. mobx-react-lite 4.0.4
+6. inversify 6.0.1
+7. reflect-metadata 0.1.13
+
 ## Getting Started
+### Development
+1. Installation
+    ```sh
+    npm install
+    ```
+2. Run
+    ```sh
+    npm run dev
+    ```
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### Production
+1. Installation
+    ```sh
+    npm install
+    ```
+2. Build
+    ```sh
+    npm run build
+    ```
+3. Run
+    ```sh
+    npm run start
+    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
