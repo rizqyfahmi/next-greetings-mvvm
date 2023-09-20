@@ -1,8 +1,9 @@
 import helloViewModel from "@/injector"
 
-const HelloServerView = () => {
+const HelloServerView = async () => {
+    const result = await helloViewModel.getHelloServer()
     return (
-        <div>{helloViewModel.getHelloServer()}</div>
+        <div>{result}</div>
     )
 }
 
