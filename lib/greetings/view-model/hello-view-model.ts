@@ -7,7 +7,7 @@ export interface IHelloViewModel {
     setHelloClientObservable: (helloClientObservable: string) => void
     getHelloClientObservable: () => string
     getHelloClient: () => string
-    getHelloServer: () => string
+    getHelloServer: () => Promise<string>
 }
 
 // @injectable is a way of telling the compiler that we want to inject this class as a dependency
@@ -35,5 +35,12 @@ export class HelloViewModel implements IHelloViewModel {
 
     getHelloClient = (): string => this.helloRepository.getClientSideData().getMessage()
     
-    getHelloServer = (): string => this.helloRepository.getServerSideData().getMessage()
+    getHelloServer = async (): Promise<string> => {
+        const result = await this.helloRepository.getServerSideData()
+        if (typeof result === "string") {
+            return result
+        }
+
+        return result.getMessage()
+    }
 }
